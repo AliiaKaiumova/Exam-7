@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :tests
-  resources :questions
+  resources :tests do
+    resources :questions
+  end
+
 end
