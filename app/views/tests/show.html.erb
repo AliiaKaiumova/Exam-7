@@ -15,7 +15,7 @@
   <% @questions.each do |question| %>
       <tr>
         <td><%= question.content %></td>
-        <td>answers number</td>
+        <td><%= question.answers.count %></td>
         <td>
           <%= link_to 'View, ', test_question_path(@test, question) %>
           <%= link_to 'Edit, ', edit_test_question_path(@test, question) %>

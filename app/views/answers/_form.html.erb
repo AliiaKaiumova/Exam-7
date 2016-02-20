@@ -1,0 +1,24 @@
+<%= form_for ([@test, @question, @question.answers.build]), html: {class: 'form-horizontal col-sm-8'} do |f| %>
+    <div class="form-group">
+      <%= f.label :content, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-6">
+        <%= f.text_area :content, rows: 6, autofocus: true, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-6">
+        <div class="checkbox">
+          <%= f.label :status do %>
+              <%= f.check_box :status %> Is correct?
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-6">
+        <%= f.submit 'Save', class: 'btn btn-primary' %>
+      </div>
+    </div>
+<% end %>

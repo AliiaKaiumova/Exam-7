@@ -1,15 +1,10 @@
 class QuestionsController < ApplicationController
   add_breadcrumb 'Tests', :tests_url
 
-  def index
-    @questions = Question.all
-  end
-
   def show
     @test = Test.find(params[:test_id])
-    @question = Question.find(params[:id])
-
-
+    @question = @test.questions.find(params[:id])
+    @answers = @question.answers.order(created_at: :desc).paginate(:page => params[:page], :per_page => 5)
   end
 
   def create
