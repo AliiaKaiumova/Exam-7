@@ -1,5 +1,4 @@
 body {
-  background: #dcdcdc;
   font-family: "Helvetica Neue", Roboto, Arial, "Droid Sans", sans-serif;
   font-size: 12px;
   font-weight: 400;
@@ -8,6 +7,10 @@ body {
 .container {
   width: 90%;
   margin: 0 auto;
+}
+
+.sign_in {
+  background: #dcdcdc;
 }
 
 .sign-in-form {
@@ -67,7 +70,3 @@ body {
   font-size: 14px;
 }
 
-.breadcrumb {
-  background: #dcdcdc;
-  font-size: 12px;
-}

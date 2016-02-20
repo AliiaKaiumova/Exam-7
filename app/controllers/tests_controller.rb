@@ -2,11 +2,18 @@ class TestsController < ApplicationController
   add_breadcrumb 'Tests', :tests_url
 
   def index
-    @tests = Test.all
+    @tests = Test.order(created_at: :desc).paginate(:page => params[:page], :per_page => 5)
+  end
+
+  def show
+    @test = Test.find(params[:id])
+
+    @questions = @test.questions.order(created_at: :desc).paginate(:page => params[:page], :per_page => 5)
+    add_breadcrumb @test.name, :test_url
   end
 
   def new
-    add_breadcrumb 'New test', :new_test_url
+    add_breadcrumb 'Create new test', :new_test_url
     @test = Test.new
   end
 
@@ -22,11 +29,13 @@ class TestsController < ApplicationController
 
   def edit
     @test = Test.find(params[:id])
-    add_breadcrumb '?????????????? ?????', :edit_test_url
+    add_breadcrumb @test.name, :test_url
+    add_breadcrumb 'Edit', :edit_test_url
   end
 
   def update
     @test = Test.find(params[:id])
+
     if @test.update(test_params)
       redirect_to tests_url
       flash[:success] = '?????? ???????????? ??????? ?????????'
@@ -37,13 +46,12 @@ class TestsController < ApplicationController
   end
 
   def destroy
-    @user = User.find(params[:id])
+    @test = Test.find(params[:id])
 
-    @user.destroy
+    @test.destroy
     flash[:success] = '???????????? ??????? ??????'
-    redirect_to users_url
+    redirect_to tests_url
   end
-
 
   private
 

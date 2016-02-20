@@ -1,0 +1,29 @@
+<h1><%= @test.name %></h1>
+
+<h3>Add new question:</h3>
+<%= render 'questions/form' %>
+
+<table class="table table-hover col-sm-12">
+  <thead>
+  <tr>
+    <th class="col-sm-8">Question</th>
+    <th class="col-sm-2">Answers #</th>
+    <th class="col-sm-2">Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @questions.each do |question| %>
+      <tr>
+        <td><%= question.content %></td>
+        <td>answers number</td>
+        <td>
+          <%= link_to 'View, ', test_question_path(@test, question) %>
+          <%= link_to 'Edit, ', edit_test_question_path(@test, question) %>
+          <%= link_to 'Remove', test_question_path(@test, question),
+                      method: :delete,
+                      data: {confirm: 'Are you sure you want to delete this question?'} %>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,13 @@
+<%= form_for ([@test, @test.questions.build]), html: {class: 'form-horizontal col-sm-8'} do |f| %>
+    <div class="form-group">
+      <%= f.label :content, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-6">
+        <%= f.text_area :content, rows: 6, autofocus: true, class: 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-6">
+        <%= f.submit 'Save', class: 'btn btn-primary' %>
+      </div>
+    </div>
+<% end %>
