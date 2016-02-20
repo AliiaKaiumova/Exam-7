@@ -1,3 +1,15 @@
-<h1>Edit question</h1>
+<h1>Edit question: "<%= @question.content %>"</h1>
 
-<%= render 'form' %>
+<%= form_for ([@test, @question]), html: {class: 'form-horizontal col-sm-8'} do |f| %>
+    <div class="form-group">
+      <%= f.label :content, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-6">
+        <%= f.text_area :content, rows: 6, autofocus: true, class: 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-6">
+        <%= f.submit 'Save', class: 'btn btn-primary' %>
+      </div>
+    </div>
+<% end %>
