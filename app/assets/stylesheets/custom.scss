@@ -1,8 +1,13 @@
 body {
   background: #dcdcdc;
   font-family: "Helvetica Neue", Roboto, Arial, "Droid Sans", sans-serif;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 400;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
 }
 
 .sign-in-form {
@@ -12,6 +17,57 @@ body {
   background-color: #F7F7F7;
 }
 
+.alert-success {
+  color: #ffffff;
+  background-color: rgba(38, 185, 154, 0.88);
+  border-color: rgba(38, 185, 154, 0.88);
+}
+
+.alert-info {
+  color: #E9EDEF;
+  background-color: rgba(52, 152, 219, 0.88);
+  border-color: rgba(52, 152, 219, 0.88);
+}
+
+.alert-warning {
+  color: #E9EDEF;
+  background-color: rgba(243, 156, 18, 0.88);
+  border-color: rgba(243, 156, 18, 0.88);
+}
+
+.alert-danger,
+.alert-error {
+  color: #E9EDEF;
+  background-color: rgba(231, 76, 60, 0.88);
+  border-color: rgba(231, 76, 60, 0.88);
+}
+
 .error-message {
   color: rgb(231, 76, 60);
+}
+
+.mg-top-20 {
+  margin-top: 20px;
+}
+
+.mg-bottom-20 {
+  margin-bottom: 20px;
+}
+
+.table>thead>tr {
+  border-top: none;
+  border-bottom: 2px solid #A9A9A9;
+}
+
+.table>tbody>tr:first-child td{
+  border-top: none;
+}
+
+.table>thead>tr>th {
+  font-size: 14px;
+}
+
+.breadcrumb {
+  background: #dcdcdc;
+  font-size: 12px;
 }

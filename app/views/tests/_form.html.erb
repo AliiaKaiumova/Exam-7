@@ -1,0 +1,28 @@
+<%= form_for @test, html: {class: 'form-horizontal col-sm-8'} do |f| %>
+
+    <div class="form-group">
+      <%= f.label :name, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-6">
+        <%= f.text_field :name, autofocus: true, class: 'form-control' %>
+        <%= render 'shared/field_errors',
+                   object: @test,
+                   field_name: :name %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :description, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-6">
+        <%= f.text_area :description, rows: 6, class: 'form-control' %>
+        <%= render 'shared/field_errors',
+                   object: @test,
+                   field_name: :description %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-6">
+        <%= f.submit 'Save', class: 'btn btn-primary' %>
+      </div>
+    </div>
+<% end %>
